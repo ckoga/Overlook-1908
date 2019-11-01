@@ -8,7 +8,6 @@
     <form class="form" id="modal" action="">
       <div class="form__container">
         <h2 class="form__h2"><b>Welcome to Overlook!</b></h2>
-        <button class="form__close" id='close-button' type="button"><b>&times;</b></button>
         <label class="form__label" for="user-name"><b>Username</b></label>
         <input class="form__input" type="text" placeholder="Enter Username" id="user-name" required>
         <label  class="form__label" for="password"><b>Password</b></label>
@@ -19,35 +18,57 @@
     </form>
 
     <section id="manager-ui">
-    <nav class="nav">
-      <h1 class="nav__h1">Welcome!</h1>
-      <input class="nav__datepicker" type="text" id="datepicker">
-    </nav>
-    <div id="ui-tabs" class="ui-widgets manager-ui">
-      <ul class="tabs-nav">
-        <li><a href="#tabs__main">Main</a></li>
-        <li><a href="#tabs__guest">Guest</a></li>
-        <li><a href="#tabs__booking">Bookings</a></li>
-      </ul>
-      <!-- <div class="tabs-container"> -->
-      <div id="tabs__main" class="div__tabs">
-        <p>Overlook Resort</p>
-        <p id="daily-revenue"></p>
-        <p id="available-rooms"></p>
-      </div>
-      <div id="tabs__guest" class="div__tabs">
-        <form>
-          <label>Guest Name</label>
-          <input type="text" placeholder="Guest Name" id="guest-input">
-        </form>
-      </div>
-      <div id="tabs__booking" class="div__tabs">
-        <p>Booking</p>
-        <p id="available-rooms"></p>
-      </div>
+      <nav class="nav">
+        <h1 class="nav__h1">Welcome!</h1>
+        <input class="nav__datepicker" type="text" id="manager-datepicker">
+      </nav>
+      <div id="ui-tabs" class="ui-widgets manager-ui">
+        <ul class="tabs-nav">
+          <li><a href="#tabs__main">Main</a></li>
+          <li><a href="#tabs__guest">Guest</a></li>
+          <li><a href="#tabs__booking">Bookings</a></li>
+        </ul>
+        <!-- <div class="tabs-container"> -->
+        <div id="tabs__main" class="div__tabs">
+          <p>Overlook Resort</p>
+          <p id="daily-revenue"></p>
+          <p id="available-rooms"></p>
+        </div>
+        <div id="tabs__guest" class="div__tabs">
+          <form>
+            <label>Guest Name</label>
+            <input type="text" placeholder="Guest Name" id="guest-input">
+          </form>
+        </div>
+        <div id="tabs__booking" class="div__tabs">
+          <p>Booking</p>
+          <p id="available-rooms"></p>
+        </div>
       </section>
 
-    </div>
+      <section id="customer-ui" hidden>
+        <nav class="nav">
+          <h1 class="nav__h1">Welcome!</h1>
+          <input class="nav__datepicker" type="text" id="customer-datepicker">
+        </nav>
+        <div id="ui-tabs" class="ui-widgets manager-ui">
+          <ul class="tabs-nav">
+            <li><a href="#tabs__booking">Bookings</a></li>
+            <li><a href="#tabs__billing">Billing</a></li>
+          </ul>
+              <!-- <div class="tabs-container"> -->
+          <div id="tabs__booking" class="div__tabs">
+            <form>
+              <label>Booking</label>
+              <input type="text" placeholder="Guest Name" id="guest-input">
+            </form>
+          </div>
+          <div id="tabs__billing" class="div__tabs">
+                <p>Billing</p>
+                <p id="available-rooms"></p>
+          </div>
+        </div>
+      </section>
 
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>

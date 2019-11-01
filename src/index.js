@@ -17,6 +17,8 @@ import './images/turing-logo.png'
 $(document).ready(() => {
   $('#ui-tabs').tabs();
   $('#datepicker').datepicker();
+
+  
 })
 
 $('#login').click((e) => { domUpdates.loginVerification(e)});
