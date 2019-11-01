@@ -35,7 +35,7 @@ $(document).ready(() => {
     
   Promise.all([usersFetch, roomsFetch, bookingsFetch])
     .then(allFetchData => {
-      console.log(allFetchData)
+      console.log(allFetchData[0])
     });
 })
 
