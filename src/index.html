@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Webpack Starter Kit</title>
+    <title>Overlook Hotel</title>
   </head>
   <body>
-    <h1>Webpack Starter Kit</h1>
-
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
+    <nav class="nav">
+      <h1>Welcome!</h1>
+      <input type="text" id="datepicker">
+    </nav>
+    <div id="ui-tabs" class="ui-widgets">
+      <ul class="tabs-nav">
+        <li><a href="#tabs__main">Main</a></li>
+        <li><a href="#tabs__guest">Guest</a></li>
+        <li><a href="#tabs__booking">Bookings</a></li>
+      </ul>
+      <!-- <div class="tabs-container"> -->
+      <div id="tabs__main" class="div__tabs">
+        <p>Overlook Resort</p>
+        <p id="daily-revenue"></p>
+        <p id="available-rooms"></p>
+      </div>
+      <div id="tabs__guest" class="div__tabs">
+        <form>
+          <label>Guest Name</label>
+          <input type="text" placeholder="Guest Name" id="guest-input">
+        </form>
+      </div>
+      <div id="tabs__booking" class="div__tabs">
+        <p>Booking</p>
+        <p id="available-rooms"></p>
+      </div>
+      <!-- </div> -->
+    </div>
 
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
