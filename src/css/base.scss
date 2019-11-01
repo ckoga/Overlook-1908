@@ -1,6 +1,68 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+@import '/_form.scss';
+@import'/_variables.scss';
+
 
 body {
   background-color: $primary-background;
+}
+
+#manager-ui {
+  // display: none;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  
+  h1 {
+    font-size: 3em;
+    margin: 0;
+  }
+
+  p {
+    margin: 0 35px;
+  }
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding: 0;
+}
+
+.tabs-nav li {
+  width: 50%;
+}
+
+a {
+  background: #eaeaed;
+  border: 1px solid #cecfd5;
+  color: $button-blue;
+  display: block;
+  font-weight: 600;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  &:hover {
+    background-color: #0276b0;
+    color: white;
+  }
+}
+
+.tab-active a {
+  background: #fff;
+  border-bottom-color: transparent;
+  color: #1da03a;
+  cursor: default;
+  text-decoration: none;
+}
+
+.div__tabs {
+  border: 1px solid grey;
+  width: 33%;
+}
+
+.ui-datepicker-calendar {
+  background: #fff;
 }
