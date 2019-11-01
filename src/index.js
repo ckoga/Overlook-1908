@@ -3,6 +3,8 @@
 
 // An example of how you import jQuery into a JS file if you use jQuery in that file
 import $ from 'jquery';
+import 'jquery-ui/ui/widgets/tabs';
+import 'jquery-ui/ui/widgets/datepicker';
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
@@ -11,3 +13,10 @@ import './css/base.scss';
 import './images/turing-logo.png'
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+
+$(document).ready(() => {
+  $('#ui-tabs').tabs();
+  $('#datepicker').datepicker();
+
+})
