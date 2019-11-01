@@ -4,26 +4,25 @@
     <title>Overlook Hotel</title>
   </head>
   <body>
-
-
-    <nav class="nav">
-      <h1 class="nav__h1">Welcome!</h1>
-      <input class="nav__datepicker" type="text" id="datepicker">
-    </nav>
-
     <!--Modal for login-->
     <form class="form" action="/action_page.php" method="post" id="modal">
       <div class="form__container">
-        <button class="form__close" id='close-button'><b>&times;</b></button>
+        <h2 class="form__h2"><b>Welcome to Overlook!</b></h2>
+        <button class="form__close" id='close-button' type="button"><b>&times;</b></button>
         <label class="form__label" for="user-name"><b>Username</b></label>
         <input class="form__input" type="text" placeholder="Enter Username" id="user-name" required>
         <label  class="form__label" for="password"><b>Password</b></label>
         <input class="form__input" type="password" placeholder="Enter Password" id="password" required>
+        <button class="form__button" type="submit"><b>Login</b></button>
       </div>
-      <button class="form__button" type="submit"><b>Login</b></button>
+      
     </form>
 
-    <!-- Manager ui-tabs -->
+    <section id="manager-ui">
+    <nav class="nav">
+      <h1 class="nav__h1">Welcome!</h1>
+      <input class="nav__datepicker" type="text" id="datepicker">
+    </nav>
     <div id="ui-tabs" class="ui-widgets manager-ui">
       <ul class="tabs-nav">
         <li><a href="#tabs__main">Main</a></li>
@@ -47,7 +46,7 @@
         <p id="available-rooms"></p>
       </div>
       <!-- </div> -->
-
+      </section>
 
     </div>
 

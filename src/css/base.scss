@@ -1,8 +1,13 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: lightgrey;
+@import '/_form.scss';
+@import'/_variables.scss';
+
 
 body {
   background-color: $primary-background;
+}
+
+#manager-ui {
+  // display: none;
 }
 
 nav {
@@ -33,7 +38,7 @@ ul {
 a {
   background: #eaeaed;
   border: 1px solid #cecfd5;
-  color: #0276b0;
+  color: $button-blue;
   display: block;
   font-weight: 600;
   padding: 10px 0;
