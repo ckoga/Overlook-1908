@@ -5,7 +5,7 @@
   </head>
   <body>
     <!--Modal for login-->
-    <form class="form" action="/action_page.php" method="post" id="modal">
+    <form class="form" id="modal" action="">
       <div class="form__container">
         <h2 class="form__h2"><b>Welcome to Overlook!</b></h2>
         <button class="form__close" id='close-button' type="button"><b>&times;</b></button>
@@ -13,7 +13,7 @@
         <input class="form__input" type="text" placeholder="Enter Username" id="user-name" required>
         <label  class="form__label" for="password"><b>Password</b></label>
         <input class="form__input" type="password" placeholder="Enter Password" id="password" required>
-        <button class="form__button" type="submit"><b>Login</b></button>
+        <button class="form__button" type="submit" id="login"><b>Login</b></button>
       </div>
       
     </form>
@@ -45,7 +45,6 @@
         <p>Booking</p>
         <p id="available-rooms"></p>
       </div>
-      <!-- </div> -->
       </section>
 
     </div>
