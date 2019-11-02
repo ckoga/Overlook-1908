@@ -17,5 +17,7 @@ describe('User', () => {
     expect(User).to.be.a('function');
   });
 
-  
+  it('should be able to return a name', () => {
+    expect(user.returnUserName()).to.equal('Leatha Ullrich')
+  });
 })

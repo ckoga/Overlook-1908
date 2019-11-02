@@ -4,6 +4,11 @@ class User {
     this.name = obj.name;
   }
   
+  returnUserName() {
+    return this.name
+  }
+
+
 }
 
 export default User;
