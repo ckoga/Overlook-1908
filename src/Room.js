@@ -6,6 +6,7 @@ class Rooms extends Bookings {
     this.rooms = roomsData;
   }
   
+
   calculateRoomsAvailable(date) {
     let availableRooms = (this.rooms.length - this.getTodaysBookings(date).length)
     return availableRooms;
@@ -15,9 +16,18 @@ class Rooms extends Bookings {
     return `${(this.getTodaysBookings(date).length / this.rooms.length) * 100}%`
   };
 
-  calculateCustomerBill(id) {
+  calculateCustomerBill(date, id) {
     let totalBill = 0;
-    this.getCustomerBookings(id).forEach(booking => {
+    let history = this.getCustomerBookings(id).filter(booking => {
+      let dateBooking = booking.date.split('/')
+      let todayDate = (date.split('/'))
+
+      if (dateBooking[1] < todayDate[1] || (dateBooking[1] === todayDate[1] && dateBooking[2] <= todayDate[2])) {
+        return booking
+      } 
+    })
+    
+    history.forEach(booking => {
       let room = this.rooms.find(room => room.number === booking.roomNumber)
       totalBill += room.costPerNight
     });

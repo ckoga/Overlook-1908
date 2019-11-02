@@ -36,7 +36,7 @@ describe('Rooms', () => {
   });
 
   it('should be able to calculate the total bill for a customer', () => {
-    expect(rooms.calculateCustomerBill(1)).to.equal(5992.8)
+    expect(rooms.calculateCustomerBill('2019/11/02', 1)).to.equal(1164.83)
   });
 
 })
