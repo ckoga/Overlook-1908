@@ -21,5 +21,17 @@ describe('Booking', () => {
 
   it('should hold all bookings', () => {
     expect(booking.allBookings).to.be.an('array');
+  });
+
+  it('should be able get a specific user\'s booking data', () => {
+    expect(booking.getCustomerBookings(1)).to.have.a.lengthOf(17);
+  });
+
+  it('should be able to get bookings for today', () => {
+    expect(booking.getTodaysBookings('2019/11/02')).to.have.a.lengthOf(5);
+  })
+
+  it('should be able to calculate rooms available today', () => {
+    expect(booking.calculateRoomsAvailable('2019/11/02')).to.equal(20);
   })
 }) 
