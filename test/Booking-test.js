@@ -31,7 +31,14 @@ describe('Booking', () => {
     expect(booking.getTodaysBookings('2019/11/02')).to.have.a.lengthOf(5);
   })
 
+  // tests will live in the rooms-test.js file 
   it('should be able to calculate rooms available today', () => {
     expect(booking.calculateRoomsAvailable('2019/11/02')).to.equal(20);
   })
+
+  it('should be able to calculate percentage of rooms available', () => {
+    expect(booking.calculatePercentRoomsOccupied('2019/11/02')).to.equal('20%')
+  })
+
+  
 }) 

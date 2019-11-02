@@ -16,12 +16,16 @@ class Booking {
     });
   };
 
-  calculateRoomsAvailable(date) {
+  calculateRoomsAvailable(date) { // should live in Rooms change 25 to rooms.length
     let availableRooms = (25 - this.getTodaysBookings(date).length)
     return availableRooms;
   };
 
+  calculatePercentRoomsOccupied(date) { //should live on Rooms change 25 to rooms.length
+    return `${(this.getTodaysBookings(date).length / 25) * 100}%` 
+  }
 
+  
 };
 
 export default Booking;
