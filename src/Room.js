@@ -42,7 +42,13 @@ class Rooms extends Bookings {
     return availableRooms;
   };
 
-
+  filterAvailableRooms(date, type) {
+    return this.getAvailableRooms(date).filter(room => {
+      if (room.roomType === type) {
+        return room;
+      };
+    });
+  };
 
 
 }
