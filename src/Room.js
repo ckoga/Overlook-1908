@@ -32,7 +32,20 @@ class Rooms extends Bookings {
       totalBill += room.costPerNight
     });
     return totalBill;
-  }
-};
+  };
+
+  getAvailableRooms(date) {
+    let roomsOccupied = this.getTodaysBookings(date).map(booking => booking.roomNumber)
+    let availableRooms = this.rooms.filter(room => {
+      return !roomsOccupied.includes(room.number)
+    });
+    return availableRooms;
+  };
+
+
+
+
+}
+
 
 export default Rooms;
