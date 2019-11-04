@@ -1,13 +1,13 @@
 @import '/_form.scss';
-@import'/_variables.scss';
-
+@import '/_variables.scss';
+@import '/_customer-ui.scss';
 
 body {
   background-color: $primary-background;
 }
 
 #manager-ui {
-  // display: none;
+  display: none;
 }
 
 nav {

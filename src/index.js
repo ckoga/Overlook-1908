@@ -6,6 +6,10 @@ import $ from 'jquery';
 import domUpdates from './domUpdates';
 import 'jquery-ui/ui/widgets/tabs';
 import 'jquery-ui/ui/widgets/datepicker';
+import Room from '../src/Room';
+import Booking from '../src/Booking';
+import User from '../src/User';
+import Manager from '../src/Manager';
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
@@ -42,9 +46,12 @@ $(document).ready(() => {
     });
 })
 
-// $('#manger-datepicker').on('focusOut', () => {
-//   console.log($('#manager-datepicker').val())
-// })
+function getTodaysDate() {
+  let year = new Date().getFullYear()
+  let month = new Date().getMonth() + 1;
+  let day = new Date().getDate();
 
+  return `${year}/${month < 10 ? '0' + month : '' + month}/${day < 10 ? '0' + day : '' + day}`
+}
 
 $('#login').click((e) => { domUpdates.loginVerification(e)});
