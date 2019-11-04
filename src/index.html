@@ -49,26 +49,37 @@
 
       <section id="customer-ui" hidden>
         <nav class="nav">
-          <h1 class="nav__h1">Welcome!</h1>
-          <input class="nav__datepicker" type="text" id="customer-datepicker">
+          <h1 class="nav__h1">Welcome!<span class="nav__name" id='customer-name'></span></h1>
         </nav>
-        <div id="ui-tabs" class="ui-widgets manager-ui">
-          <ul class="tabs-nav">
-            <li><a href="#tabs__booking">Bookings</a></li>
-            <li><a href="#tabs__billing">Billing</a></li>
-          </ul>
+        <!-- <div id="ui-tabs" class="ui-widgets manager-ui"> -->
+        <main class="customer__main">
               <!-- <div class="tabs-container"> -->
-          <div id="tabs__booking" class="div__tabs">
-            <form>
-              <label>Booking</label>
-              <input type="text" placeholder="Guest Name" id="guest-input">
-            </form>
-          </div>
-          <div id="tabs__billing" class="div__tabs">
+          <!-- <div id="tabs__booking" class="div__tabs"> -->
+          <section class="customer__profile">
+            <div class="profile__bookings">
+              <ul class="bookings__list"></ul>
+              <p class="bookings__billing"></p>
+            </div>
+          </section>
+          <section class="customer__booking">
+            <fieldset class="booking__fieldset">
+              <legend class="booking__label">Rooms</legend>
+              <div class="controlgroup">
+                <select name="room-type" id="#room-type">
+                  <option>Junior Suite</option>
+                  <option>Suite</option>
+                  <option>Single Room</option>
+                  <option>Residential Suite</option>
+                </select>
+              </div>
+            </fieldset>
+          </section>
+          <!-- <section id="tabs__billing" class="div__tabs">
                 <p>Billing</p>
                 <p id="available-rooms"></p>
-          </div>
-        </div>
+          </div> -->
+        <!-- </div> -->
+        </main>
       </section>
 
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
