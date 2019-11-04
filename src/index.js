@@ -20,7 +20,7 @@ import './images/turing-logo.png'
 
 $(document).ready(() => {
   $('#ui-tabs').tabs();
-  $('#datepicker').datepicker();
+  $('#manager-datepicker').datepicker();
 
   const usersFetch = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
     .then(response => response.json())
@@ -39,7 +39,10 @@ $(document).ready(() => {
     
   Promise.all([usersFetch, roomsFetch, bookingsFetch])
     .then(allFetchData => {
+      // const booking = new Booking
+
       console.log(allFetchData)
+
     });
 })
 
@@ -53,4 +56,4 @@ function getTodaysDate() {
 
 $('#login').click((e) => { domUpdates.loginVerification(e)});
 
-$('#available-rooms').text(`${rooms.getAvailableRooms(getTodaysDate())}`)
+
