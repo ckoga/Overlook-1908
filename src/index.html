@@ -14,9 +14,7 @@
         <input class="form__input" type="password" placeholder="Enter Password" id="password" required>
         <button class="form__button" type="submit" id="login"><b>Login</b></button>
       </div>
-      
     </form>
-
     <section id="manager-ui">
       <nav class="nav">
         <h1 class="nav__h1">Overlook Management</h1>
@@ -46,20 +44,16 @@
           <p id="available-rooms"></p>
         </div>
       </section>
-
-      <section id="customer-ui" hidden>
+      <section id="customer-ui" >
         <nav class="nav">
           <h1 class="nav__h1">Welcome!<span class="nav__name" id='customer-name'></span></h1>
         </nav>
-        <!-- <div id="ui-tabs" class="ui-widgets manager-ui"> -->
         <main class="customer__main">
-              <!-- <div class="tabs-container"> -->
-          <!-- <div id="tabs__booking" class="div__tabs"> -->
           <section class="customer__profile">
-            <div class="profile__bookings">
-              <ul class="bookings__list"></ul>
-              <p class="bookings__billing"></p>
-            </div>
+              <label for="booking-history">Your Bookings</label>
+              <ul class="bookings__list" id="booking-history"></ul>
+              <label for="customer-spending" class="booking__total">Past Billing</label>
+              <p class="bookings__billing" id="customer-spending"></p>
           </section>
           <section class="customer__booking">
             <fieldset class="booking__fieldset">
@@ -73,12 +67,8 @@
                 </select>
               </div>
             </fieldset>
+            <ul class="customer__available-rooms"></ul>
           </section>
-          <!-- <section id="tabs__billing" class="div__tabs">
-                <p>Billing</p>
-                <p id="available-rooms"></p>
-          </div> -->
-        <!-- </div> -->
         </main>
       </section>
 
