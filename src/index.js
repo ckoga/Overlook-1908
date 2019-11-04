@@ -35,8 +35,12 @@ $(document).ready(() => {
     
   Promise.all([usersFetch, roomsFetch, bookingsFetch])
     .then(allFetchData => {
+      const booking = new Booking
+
       console.log(allFetchData)
+
     });
 })
 
 $('#login').click((e) => { domUpdates.loginVerification(e)});
+$('#available-rooms').html()
