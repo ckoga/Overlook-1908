@@ -3,7 +3,7 @@ const expect = chai.expect;
 import spies from 'chai-spies'
 import User from '../src/User';
 import usersData from './customer-sample-data';
-
+chai.use(spies)
 
 describe('User', () => {
 
@@ -20,4 +20,10 @@ describe('User', () => {
   it('should be able to return a name', () => {
     expect(user.returnUserName()).to.equal('Leatha Ullrich')
   });
+
+  it.skip('should be able to post a booking', () => {
+    chai.spy.on(user, 'makeBooking', () => {
+
+    })
+  })
 })
