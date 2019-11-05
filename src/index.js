@@ -21,30 +21,34 @@ import './images/turing-logo.png'
 $(document).ready(() => {
   $('#ui-tabs').tabs();
   $('#manager-datepicker').datepicker();
-
-  const usersFetch = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
-    .then(response => response.json())
-    .then(data => data.users)
-    .catch(error => console.log(error));
-
-  const roomsFetch = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
-    .then(response => response.json())
-    .then(data => data.rooms)
-    .catch(error => console.log(error));
-
-  const bookingsFetch = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
-    .then(response => response.json())
-    .then(data => data.bookings)
-    .catch(error => console.log(error));
-    
-  Promise.all([usersFetch, roomsFetch, bookingsFetch])
-    .then(allFetchData => {
-      // const booking = new Booking
-
-      console.log(allFetchData)
-
-    });
 })
+
+
+const usersFetch = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
+  .then(response => response.json())
+  .then(data => data.users)
+  .catch(error => console.log(error));
+
+const roomsFetch = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
+  .then(response => response.json())
+  .then(data => data.rooms)
+  .catch(error => console.log(error));
+
+const bookingsFetch = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
+  .then(response => response.json())
+  .then(data => data.bookings)
+  .catch(error => console.log(error));
+    
+Promise.all([usersFetch, roomsFetch, bookingsFetch])
+  .then(allFetchData => {
+    const booking = new Booking(allFetchData[2]);
+    const rooms = new Room(allFetchData[2], allFetchData[1]);
+    const user = new User(allFetchData[0][49]);
+    const manager = new Manager(allFetchData[0])
+    console.log(allFetchData)
+    data(booking, rooms, user, manager)
+  })
+  .catch(error => console.log(error));
 
 function getTodaysDate() {
   let year = new Date().getFullYear()
@@ -54,4 +58,15 @@ function getTodaysDate() {
   return `${year}/${month < 10 ? '0' + month : '' + month}/${day < 10 ? '0' + day : '' + day}`
 }
 
-$('#login').click((e) => { domUpdates.loginVerification(e)});
+function data(booking, rooms, user, manager) {
+  $('#available-rooms').html()
+
+  $('.customer__available-rooms').html(domUpdates.appendRooms(rooms.getAvailableRooms(getTodaysDate())))
+
+} 
+
+
+
+$('#login').click((e) => {
+  domUpdates.loginVerification(e);
+});

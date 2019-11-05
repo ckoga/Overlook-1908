@@ -11,6 +11,20 @@ const domUpdates = {
       $('#manager-ui').hide();
       $('#customer-ui').show();
     }
+  },
+
+  appendRooms(arr) {
+    let list = `<ul class="rooms-open">`
+    arr.forEach(obj => {
+      list += `<li class="room-open">
+        <p class="room-number">${obj.number}</p>
+        <p class="room-type">${obj.roomType}</p>
+        <p class="room-bidet">Bidet: ${obj.bidet}</p> 
+        <p class="room-beds">Number of Beds: ${obj.numBeds}</p>
+        <p class="room-cost">Cost Per Night: $${obj.costPerNight}`
+
+    })
+    return list
   }
 
 };
