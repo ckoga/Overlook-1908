@@ -58,19 +58,19 @@ function getTodaysDate() {
   return `${year}/${month < 10 ? '0' + month : '' + month}/${day < 10 ? '0' + day : '' + day}`
 }
 
-function data(booking, rooms, user, manager) {
-  $('#available-rooms').text(rooms.getAvailableRooms(getTodaysDate()).length)
-  $('#daily-revenue').html(rooms.calculateTotalRevenue(getTodaysDate()))
-  $('#percent-occupied').text(rooms.calculatePercentRoomsOccupied(getTodaysDate()))
-
-
-  $('#booking-history').html(domUpdates.appendBookings(booking.getCustomerBookings(50)))
-  $('.customer__available-rooms').html(domUpdates.appendRooms(rooms.getAvailableRooms(getTodaysDate())))
-  $()
-} 
-
-
-
 $('#login').click((e) => {
   domUpdates.loginVerification(e);
 });
+
+function data(booking, rooms, user, manager) {
+  $('#available-rooms').text(rooms.getAvailableRooms(getTodaysDate()).length);
+  $('#daily-revenue').html(rooms.calculateTotalRevenue(getTodaysDate()));
+  $('#percent-occupied').text(rooms.calculatePercentRoomsOccupied(getTodaysDate()));
+
+
+  $('#booking-history').html(domUpdates.appendBookings(booking.getCustomerBookings(50)));
+  $('.customer__available-rooms').html(domUpdates.appendRooms(rooms.getAvailableRooms(getTodaysDate())));
+  $('#customer-spending').text(`$${rooms.calculateCustomerBill(getTodaysDate(), 50)}`);
+}; 
+
+
