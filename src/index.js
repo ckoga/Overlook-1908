@@ -6,6 +6,7 @@ import $ from 'jquery';
 import domUpdates from './domUpdates';
 import 'jquery-ui/ui/widgets/tabs';
 import 'jquery-ui/ui/widgets/datepicker';
+import 'jquery-ui/ui/widgets/controlgroup';
 import Room from '../src/Room';
 import Booking from '../src/Booking';
 import User from '../src/User';
@@ -20,7 +21,7 @@ import './images/turing-logo.png'
 
 $(document).ready(() => {
   $('#ui-tabs').tabs();
-  $('#manager-datepicker').datepicker();
+  $('.controlgroup').controlgroup();
 })
 
 
@@ -63,14 +64,30 @@ $('#login').click((e) => {
 });
 
 function data(booking, rooms, user, manager) {
+  $('#manager-datepicker').datepicker({
+    dateFormat: "yy/mm/dd"
+  });
+  $('#customer-datepicker').datepicker({
+    dateFormat: "yy/mm/dd"
+  });
   $('#available-rooms').text(rooms.getAvailableRooms(getTodaysDate()).length);
   $('#daily-revenue').html(rooms.calculateTotalRevenue(getTodaysDate()));
   $('#percent-occupied').text(rooms.calculatePercentRoomsOccupied(getTodaysDate()));
 
-
   $('#booking-history').html(domUpdates.appendBookings(booking.getCustomerBookings(50)));
   $('.customer__available-rooms').html(domUpdates.appendRooms(rooms.getAvailableRooms(getTodaysDate())));
   $('#customer-spending').text(`$${rooms.calculateCustomerBill(getTodaysDate(), 50)}`);
+
+  $(document).on("change", "select", function () {
+    $("option[value=" + this.value + "]", this)
+      .attr("selected", true).siblings()
+      .removeAttr("selected")
+  });
+
+  $('#room-search').click(() => {
+    $('.customer__available-rooms').html(domUpdates.appendRooms(rooms.filterAvailableRooms($('#customer-datepicker').val(), $('select option:selected').val())));
+  });
+  
 }; 
 
 

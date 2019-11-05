@@ -46,7 +46,7 @@
           <p id="available-rooms"></p>
         </div>
       </section>
-      <section id="customer-ui" hidden>
+      <section id="customer-ui" >
         <nav class="nav">
           <h1 class="nav__h1">Welcome!<span class="nav__name" id='customer-name'></span></h1>
         </nav>
@@ -58,17 +58,24 @@
               <p class="bookings__billing" id="customer-spending"></p>
           </section>
           <section class="customer__booking">
-            <fieldset class="booking__fieldset">
-              <legend class="booking__label">Rooms</legend>
-              <div class="controlgroup">
-                <select name="room-type" id="#room-type">
-                  <option>Junior Suite</option>
-                  <option>Suite</option>
-                  <option>Single Room</option>
-                  <option>Residential Suite</option>
-                </select>
-              </div>
-            </fieldset>
+            <form name="room-search" id="room-details">
+              <fieldset class="booking__fieldset">
+                <legend class="booking__label">Available Rooms</legend>
+                <div class="controlgroup">
+                  <label for="customer-datepicker" class="ui-controlgroup-item">Select Date:</label>
+                  <input class="controlgroup__datepicker ui-controlgroup-item" type="text" id="customer-datepicker">
+                  <label for="room-type" class="controlgroup__selector ui-controlgroup-item">Type of Room:</label>
+                  <select name="room-type" id="#room-type" class="customer-room ui-controlgroup-item">
+                    <option value="">Select Type</option>
+                    <option value="junior-suite">Junior Suite</option>
+                    <option value="suite">Suite</option>
+                    <option value="single">Single Room</option>
+                    <option value="residential-suite">Residential Suite</option>
+                  </select>
+                  <input class="ui-controlgroup-item" id="room-search" value="SEARCH" >
+                </div>
+              </fieldset>
+            </form>
             <ul class="customer__available-rooms"></ul>
           </section>
         </main>
