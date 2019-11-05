@@ -59,10 +59,14 @@ function getTodaysDate() {
 }
 
 function data(booking, rooms, user, manager) {
-  $('#available-rooms').html()
+  $('#available-rooms').text(rooms.getAvailableRooms(getTodaysDate()).length)
+  $('#daily-revenue').html(rooms.calculateTotalRevenue(getTodaysDate()))
+  $('#percent-occupied').text(rooms.calculatePercentRoomsOccupied(getTodaysDate()))
 
+
+  $('#booking-history').html(domUpdates.appendBookings(booking.getCustomerBookings(50)))
   $('.customer__available-rooms').html(domUpdates.appendRooms(rooms.getAvailableRooms(getTodaysDate())))
-
+  $()
 } 
 
 
