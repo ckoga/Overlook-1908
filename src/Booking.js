@@ -16,6 +16,10 @@ class Booking {
     });
   };
 
+  calculateTotalRevenue(date) {
+    console.log(this.getTodaysBookings(date))
+  }
+
 };
 
 export default Booking;

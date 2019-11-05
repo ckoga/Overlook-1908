@@ -30,5 +30,9 @@ describe('Booking', () => {
   it('should be able to get bookings for today', () => {
     expect(booking.getTodaysBookings('2019/11/02')).to.have.a.lengthOf(5);
   })
+
+  it('should be able to calculate total revenue today', () => {
+    expect(booking.calculateTotalRevenue('2019/11/02')).to.equal()
+  })
   
 }) 
