@@ -16,9 +16,7 @@ class Booking {
     });
   };
 
-  calculateTotalRevenue(date) {
-    console.log(this.getTodaysBookings(date))
-  }
+ 
 
 };
 
