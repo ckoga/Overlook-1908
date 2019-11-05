@@ -7,7 +7,7 @@ body {
 }
 
 #manager-ui {
-  display: none;
+  // display: none;
 }
 
 nav {
@@ -24,7 +24,7 @@ nav {
   }
 }
 
-ul {
+.tabs-nav {
   display: flex;
   flex-direction: row;
   list-style-type: none;
@@ -65,4 +65,9 @@ a {
 
 .ui-datepicker-calendar {
   background: #fff;
+}
+
+.room-type,
+.room-bidet {
+  text-transform: capitalize;
 }

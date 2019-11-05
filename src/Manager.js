@@ -4,7 +4,6 @@ class Manager {
   }
 
   getUser(name) {
-    console.log(this.users)
     return this.users.find(user => user.name.toLowerCase() === name.toLowerCase())
   }
 };

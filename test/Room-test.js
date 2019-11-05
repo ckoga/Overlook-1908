@@ -66,4 +66,8 @@ describe('Rooms', () => {
   it('should be able to filter available rooms by roomType', () => {
     expect(rooms.filterAvailableRooms('2019/11/02', 'single room')).to.have.a.lengthOf(12)
   })
+
+  it('should be able to calculate total revenue today', () => {
+    expect(rooms.calculateTotalRevenue('2019/11/02')).to.equal('1838.81')
+  })
 });
