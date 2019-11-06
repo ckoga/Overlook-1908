@@ -4,10 +4,7 @@
 
 body {
   background-color: $primary-background;
-}
-
-#manager-ui {
-  display: none;
+  font-family: 'Open Sans', sans-serif;
 }
 
 nav {
@@ -17,6 +14,8 @@ nav {
   }
 
   p {
+    font-size: 1em;
+
     margin: 0 35px;
   }
 }
@@ -55,11 +54,6 @@ a {
   text-decoration: none;
 }
 
-.div__tabs {
-  border: 1px solid grey;
-  width: 33%;
-}
-
 .ui-datepicker-calendar {
   background: #fff;
 }
@@ -68,4 +62,23 @@ a {
 .room__bidet,
 .room__beds {
   text-transform: capitalize;
+}
+
+#tabs__main {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+
+  .main__label {
+    font-size: 1.5em;
+    font-weight: 400;
+  }
+
+  div p {
+    font-size: 1.3em;
+  }
+}
+
+.guest__billing {
+  display: flex;
 }

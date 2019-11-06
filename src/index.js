@@ -37,7 +37,6 @@ Promise.all([usersFetch, roomsFetch, bookingsFetch])
     const rooms = new Room(allFetchData[2], allFetchData[1]);
     const user = new User(allFetchData[0][49]);
     const manager = new Manager(allFetchData[0])
-    console.log(allFetchData)
     data(booking, rooms, user, manager)
   })
   .catch(error => console.log(error));

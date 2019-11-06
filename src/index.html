@@ -2,9 +2,9 @@
 <html lang="en-US">
   <head>
     <title>Overlook Hotel</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!--Modal for login-->
     <form class="form" id="modal" action="">
       <div class="form__container">
         <h2 class="form__h2"><b>Welcome to Overlook!</b></h2>
@@ -25,14 +25,20 @@
           <li><a href="#tabs__guest">Guest</a></li>
           <li><a href="#tabs__booking">Bookings</a></li>
         </ul>
+        <h2>Overlook Today</h2>
         <div id="tabs__main" class="div__tabs">
-          <p>Overlook Today</p>
-          <label class="label-available" for="available-rooms">Rooms Available</label>
-          <p id="available-rooms"></p>
-          <label for="daily-revenue" class="label-revenue">Daily Revenue</label>
-          <p id="daily-revenue"></p>
-          <label for="percent-occupied" class="label-percent">Rooms Occupied</label>
-          <p id="percent-occupied"></p>
+          <div class="main__div">
+            <p class="main__label">Available Rooms</p>
+            <p id="available-rooms"></p>
+          </div>
+          <div class="main__div">
+            <p class="main__label">Daily Revenue</p>
+            <p id="daily-revenue"></p>
+          </div>
+          <div class="main__div">
+            <p class="main__label">Rooms Occupied</p>
+            <p id="percent-occupied"></p>
+          </div>
         </div>
         <div id="tabs__guest" class="div__tabs">
           <form class="guest__form">
@@ -48,7 +54,7 @@
           <input class="manager__datepicker" type="text" id="manager-datepicker">
         </div>
       </section>
-      <section id="customer-ui">
+      <section id="customer-ui" hidden>
         <nav class="nav">
           <h1 class="nav__h1">Welcome <span class="nav__name" id='customer-name'></span></h1>
         </nav>
