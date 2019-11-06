@@ -18,7 +18,6 @@
     <section id="manager-ui">
       <nav class="nav">
         <h1 class="nav__h1">Overlook Management</h1>
-        <input class="nav__datepicker" type="text" id="manager-datepicker">
       </nav>
       <div id="ui-tabs" class="ui-widgets manager-ui">
         <ul class="tabs-nav">
@@ -36,17 +35,20 @@
           <p id="percent-occupied"></p>
         </div>
         <div id="tabs__guest" class="div__tabs">
-          <form>
-            <label>Guest Name</label>
+          <form class="guest__form">
+            <label >Guest Name</label>
             <input type="text" placeholder="Guest Name" id="guest-input">
+            <input type="button" class="submit-name" value="SEARCH">
           </form>
+          <div class="guest__billing"></div>
         </div>
         <div id="tabs__booking" class="div__tabs">
           <p>Booking</p>
           <p id="available-rooms"></p>
+          <input class="manager__datepicker" type="text" id="manager-datepicker">
         </div>
       </section>
-      <section id="customer-ui" >
+      <section id="customer-ui" hidden>
         <nav class="nav">
           <h1 class="nav__h1">Welcome <span class="nav__name" id='customer-name'></span></h1>
         </nav>
