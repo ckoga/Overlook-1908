@@ -75,14 +75,24 @@ function data(booking, rooms, user, manager) {
   });
 
   $('#room-search').click(() => {
-    console.log($('.room-number').text())
-    $('.customer__available-rooms').html(domUpdates.appendRooms(rooms.filterAvailableRooms($('#customer-datepicker').val(), $('select option:selected').val())));
+    if(rooms.filterAvailableRooms($('#customer-datepicker').val(), $('select option:selected').val()).length > 0) {
+      $('.customer__available-rooms').html(domUpdates.appendRooms(rooms.filterAvailableRooms($('#customer-datepicker').val(), $('select option:selected').val())));
+    } else {
+      $('.rooms-list').html("We deeply apologise, the date/room type you have selected is completely booked please choose another date/room type.")
+    }
+  
+
+    
   });
   
-  // $('#book-room').click(() => {
-  //   user.makeBooking($('#customer-datepicker').val(), );
 
-  // })
 }; 
 
+$('.room').click((event) => {
+  console.log(event.target)
+  $(event.target.parentElement).addClass('selected')
+  console.log($('#customer-datepicker').val())
+  console.log($(event.target.childNodes[3]).text())
 
+  // user.makeBooking($('#customer-datepicker').val(), $('.room__number').text());
+});
