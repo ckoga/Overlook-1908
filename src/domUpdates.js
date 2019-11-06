@@ -28,12 +28,20 @@ const domUpdates = {
   appendRooms(arr) {
     let list = `<ul class="rooms-list">`
     arr.forEach(obj => {
-      list += `<li class="rooms">
-        <p class="room-number">${obj.number}</p>
-        <p class="room-type">${obj.roomType}</p>
-        <p class="room-bidet">Bidet: ${obj.bidet}</p> 
-        <p class="room-beds">Number of Beds: ${obj.numBeds}</p>
-        <p class="room-cost">Cost Per Night: $${obj.costPerNight}</p>`
+      list += `<li class="room">
+        <label class="room__label" for="room-number">Room:</label>
+        <p class="room__number">${obj.number}</p>
+        <label class="room__label" for="room-type">Type:</label>
+        <p class="room__type" id="room-type">${obj.roomType}</p>
+        <label class="room__label" for="room-bidet">Bidet:</label>
+        <p class="room__bidet">${obj.bidet}</p> 
+        <label class="room__label" for="room-bed-size">Bed Size:</label>
+        <p class="room__beds">${obj.bedSize}</p>
+        <label class="room__label" for="room-beds">Number of Beds:</label>
+        <p class="room__beds">${obj.numBeds}</p>
+        <label class="room__label" for="room-cost">Cost Per Night:</label>
+        <p class="room__cost">$${obj.costPerNight}</p>
+        <button class="room-book" type="button">Book Room</button>`
 
     })
     return list

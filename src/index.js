@@ -1,26 +1,18 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you import jQuery into a JS file if you use jQuery in that file
 import $ from 'jquery';
 import domUpdates from './domUpdates';
 import 'jquery-ui/ui/widgets/tabs';
 import 'jquery-ui/ui/widgets/datepicker';
+import 'jquery-ui/ui/widgets/controlgroup';
 import Room from '../src/Room';
 import Booking from '../src/Booking';
 import User from '../src/User';
 import Manager from '../src/Manager';
-
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
-
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
 
 
 $(document).ready(() => {
   $('#ui-tabs').tabs();
-  $('#manager-datepicker').datepicker();
+  $('.controlgroup').controlgroup();
 })
 
 
@@ -63,14 +55,34 @@ $('#login').click((e) => {
 });
 
 function data(booking, rooms, user, manager) {
+  $('#manager-datepicker').datepicker({
+    dateFormat: "yy/mm/dd"
+  });
+  $('#customer-datepicker').datepicker({
+    dateFormat: "yy/mm/dd"
+  });
   $('#available-rooms').text(rooms.getAvailableRooms(getTodaysDate()).length);
   $('#daily-revenue').html(rooms.calculateTotalRevenue(getTodaysDate()));
   $('#percent-occupied').text(rooms.calculatePercentRoomsOccupied(getTodaysDate()));
 
-
+  $('#customer-name').text(`${user.returnUserName()}!`)
   $('#booking-history').html(domUpdates.appendBookings(booking.getCustomerBookings(50)));
   $('.customer__available-rooms').html(domUpdates.appendRooms(rooms.getAvailableRooms(getTodaysDate())));
   $('#customer-spending').text(`$${rooms.calculateCustomerBill(getTodaysDate(), 50)}`);
+
+  $(document).on("change", "select", function () {
+    $("option[value=" + this.value + "]", this).attr("selected", true).siblings().removeAttr("selected")
+  });
+
+  $('#room-search').click(() => {
+    console.log($('.room-number').text())
+    $('.customer__available-rooms').html(domUpdates.appendRooms(rooms.filterAvailableRooms($('#customer-datepicker').val(), $('select option:selected').val())));
+  });
+  
+  // $('#book-room').click(() => {
+  //   user.makeBooking($('#customer-datepicker').val(), );
+
+  // })
 }; 
 
 
