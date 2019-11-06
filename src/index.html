@@ -54,7 +54,7 @@
           <input class="manager__datepicker" type="text" id="manager-datepicker">
         </div>
       </section>
-      <section id="customer-ui" hidden>
+      <section id="customer-ui" >
         <nav class="nav">
           <h1 class="nav__h1">Welcome <span class="nav__name" id='customer-name'></span></h1>
         </nav>
@@ -82,16 +82,21 @@
                     <option value="single">Single Room</option>
                     <option value="residential-suite">Residential Suite</option>
                   </select>
-                  <input class="ui-controlgroup-item" id="room-search" value="SEARCH" >
+                  <input type="button" class="ui-controlgroup-item" id="room-search" value="SEARCH" >
                 </div>
               </fieldset>
             </form>
-            <ul class="customer__available-rooms"></ul>
             <button class="room-book" id="book-room" type="button">Book Room</button>
+            <div class="booking__form" hidden>
+              <form action="" class="cutomer__booking">
+                <label for="room-number" class="booking__label"> Room Number</label>
+                <input type="text" class="booking__room" id="room-number">
+                <button class="booking__button" id="submit-booking" type="button">Submit Booking</button>
+              </form>
+            </div>
+            <ul class="customer__available-rooms"></ul>
           </section>
         </main>
       </section>
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>

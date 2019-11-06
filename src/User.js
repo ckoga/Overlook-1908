@@ -9,19 +9,19 @@ class User {
   }
 
   makeBooking(date, num) {
+    
     fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        id: Date.now(),
         userID: this.id,
         date: date,
-        roomNumber: num
+        roomNumber: parseInt(num)
       })
     }).catch(error => console.log('We\'re very sorry, there was an error submitting your booking', error))
   }
 }
 
-export default User;
+export default User; 

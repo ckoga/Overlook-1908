@@ -13,7 +13,7 @@ import './css/base.scss';
 $(document).ready(() => {
   $('#ui-tabs').tabs();
   $('.controlgroup').controlgroup();
-})
+});
 
 
 const usersFetch = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
@@ -38,6 +38,7 @@ Promise.all([usersFetch, roomsFetch, bookingsFetch])
     const user = new User(allFetchData[0][49]);
     const manager = new Manager(allFetchData[0])
     data(booking, rooms, user, manager)
+    console.log(allFetchData)
   })
   .catch(error => console.log(error));
 
@@ -88,15 +89,15 @@ function data(booking, rooms, user, manager) {
     $('.guest__billing').append(`Total Bill: ${rooms.calculateCustomerBill(getTodaysDate(), user.id)}`)
   });
 
-  
+  $('#book-room').click(() => {
+    console.log($('#customer-datepicker').val())
+      $('.booking__form').toggle('hidden')
+  });
+
+  $('.booking__button').click(() => {
+    user.makeBooking($('#customer-datepicker').val(), $('#room-number').val());
+  });
 }; 
 
-$('.room').click((event) => {
-  console.log(event.target)
-  $(event.target.parentElement).addClass('selected')
-  console.log($('#customer-datepicker').val())
-  console.log($(event.target.childNodes[3]).text())
 
-  // user.makeBooking($('#customer-datepicker').val(), $('.room__number').text());
-});
 
