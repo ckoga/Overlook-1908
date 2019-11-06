@@ -13,10 +13,12 @@ class Manager {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringigy({
-        id: bookingID
+      body: JSON.stringify({
+        id: parseInt(bookingID)
       })
     })
+    .then(response => response.json())
+    .catch(error => console.log(error))
   }
 };
 

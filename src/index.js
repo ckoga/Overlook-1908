@@ -64,7 +64,9 @@ function data(booking, rooms, user, manager) {
   $('#rooms-open').text(rooms.getAvailableRooms(getTodaysDate()).length);
   $('#daily-revenue').html(rooms.calculateTotalRevenue(getTodaysDate()));
   $('#percent-occupied').text(rooms.calculatePercentRoomsOccupied(getTodaysDate()));
-  $('#tabs__booking').append(domUpdates.appendRooms(rooms.getAvailableRooms(getTodaysDate())));
+  $('.manager__avialable').append(domUpdates.appendRooms(rooms.getAvailableRooms(getTodaysDate())));
+  $('.manager__booked').append(domUpdates.appendBookings(booking.getTodaysBookings(getTodaysDate())));
+
 
   $('#customer-name').text(`${user.returnUserName()}!`)
   $('#booking-history').append(domUpdates.appendBookings(booking.getCustomerBookings(50)));
@@ -81,8 +83,12 @@ function data(booking, rooms, user, manager) {
     } else {
       $('.rooms-list').html("We deeply apologise, the date/room type you have selected is completely booked please choose another date/room type.")
     }
-  
   });
+
+  $('.manager-show-bookings').click(() => {
+    $('.manager__booked').toggle('hidden');
+    $('.manager__available').hide()
+  })
   
   $('.submit-name').click(() => {
     $('.guest__form').append(domUpdates.appendBookings(booking.getCustomerBookings(manager.getUser($('#guest-input').val()).id)))
@@ -94,9 +100,18 @@ function data(booking, rooms, user, manager) {
       $('.booking__form').toggle('hidden')
   });
 
+  $('#delete__form').click(() => {
+    $('.delete__form').toggle('hidden')
+  });
+
   $('.booking__button').click(() => {
     user.makeBooking($('#customer-datepicker').val(), $('#room-number').val());
   });
+
+  $('#delete-booking').click(() => {
+    console.log($('#booking-number').val())
+    manager.deleteBooking($('#booking-number').val())
+  })
 }; 
 
 
