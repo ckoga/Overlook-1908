@@ -13,7 +13,7 @@ import './css/base.scss';
 $(document).ready(() => {
   $('#ui-tabs').tabs();
   $('.controlgroup').controlgroup();
-})
+});
 
 
 const usersFetch = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
@@ -38,6 +38,7 @@ Promise.all([usersFetch, roomsFetch, bookingsFetch])
     const user = new User(allFetchData[0][49]);
     const manager = new Manager(allFetchData[0])
     data(booking, rooms, user, manager)
+    console.log(allFetchData)
   })
   .catch(error => console.log(error));
 
@@ -63,7 +64,9 @@ function data(booking, rooms, user, manager) {
   $('#rooms-open').text(rooms.getAvailableRooms(getTodaysDate()).length);
   $('#daily-revenue').html(rooms.calculateTotalRevenue(getTodaysDate()));
   $('#percent-occupied').text(rooms.calculatePercentRoomsOccupied(getTodaysDate()));
-  $('#tabs__booking').append(domUpdates.appendRooms(rooms.getAvailableRooms(getTodaysDate())));
+  $('.manager__avialable').append(domUpdates.appendRooms(rooms.getAvailableRooms(getTodaysDate())));
+  $('.manager__booked').append(domUpdates.appendBookings(booking.getTodaysBookings(getTodaysDate())));
+
 
   $('#customer-name').text(`${user.returnUserName()}!`)
   $('#booking-history').append(domUpdates.appendBookings(booking.getCustomerBookings(50)));
@@ -80,23 +83,36 @@ function data(booking, rooms, user, manager) {
     } else {
       $('.rooms-list').html("We deeply apologise, the date/room type you have selected is completely booked please choose another date/room type.")
     }
-  
   });
+
+  $('.manager-show-bookings').click(() => {
+    $('.manager__booked').toggle('hidden');
+    $('.manager__available').hide()
+  })
   
   $('.submit-name').click(() => {
     $('.guest__form').append(domUpdates.appendBookings(booking.getCustomerBookings(manager.getUser($('#guest-input').val()).id)))
     $('.guest__billing').append(`Total Bill: ${rooms.calculateCustomerBill(getTodaysDate(), user.id)}`)
   });
 
-  
+  $('#book-room').click(() => {
+    console.log($('#customer-datepicker').val())
+      $('.booking__form').toggle('hidden')
+  });
+
+  $('#delete__form').click(() => {
+    $('.delete__form').toggle('hidden')
+  });
+
+  $('.booking__button').click(() => {
+    user.makeBooking($('#customer-datepicker').val(), $('#room-number').val());
+  });
+
+  $('#delete-booking').click(() => {
+    console.log($('#booking-number').val())
+    manager.deleteBooking($('#booking-number').val())
+  })
 }; 
 
-$('.room').click((event) => {
-  console.log(event.target)
-  $(event.target.parentElement).addClass('selected')
-  console.log($('#customer-datepicker').val())
-  console.log($(event.target.childNodes[3]).text())
 
-  // user.makeBooking($('#customer-datepicker').val(), $('.room__number').text());
-});
 

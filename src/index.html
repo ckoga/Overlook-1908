@@ -52,6 +52,17 @@
           <p>Booking</p>
           <p id="available-rooms"></p>
           <input class="manager__datepicker" type="text" id="manager-datepicker">
+          <button class="manager-show-bookings">Show Bookings</button>
+          <button class="delete__button" id="delete__form">Delete Booking</button>
+          <div class="delete__form" hidden>
+            <form action="" class="manager__booking">
+              <label for="booking-number" class="booking__label">Booking ID</label>
+              <input type="text" class="booking__room" id="booking-number" placeholder="Paste booking ID here">
+              <button class="delete__button" id="delete-booking" type="button">Delete Booking</button>
+            </form>
+          </div>
+          <div class="manager__available"></div>
+          <div class="manager__booked" hidden></div>
         </div>
       </section>
       <section id="customer-ui" hidden>
@@ -82,16 +93,21 @@
                     <option value="single">Single Room</option>
                     <option value="residential-suite">Residential Suite</option>
                   </select>
-                  <input class="ui-controlgroup-item" id="room-search" value="SEARCH" >
+                  <input type="button" class="ui-controlgroup-item" id="room-search" value="SEARCH" >
                 </div>
               </fieldset>
             </form>
-            <ul class="customer__available-rooms"></ul>
             <button class="room-book" id="book-room" type="button">Book Room</button>
+            <div class="booking__form" hidden>
+              <form action="" class="cutomer__booking">
+                <label for="room-number" class="booking__label"> Room Number</label>
+                <input type="text" class="booking__room" id="room-number">
+                <button class="booking__button" id="submit-booking" type="button">Submit Booking</button>
+              </form>
+            </div>
+            <ul class="customer__available-rooms"></ul>
           </section>
         </main>
       </section>
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>

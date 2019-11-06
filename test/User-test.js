@@ -21,9 +21,9 @@ describe('User', () => {
     expect(user.returnUserName()).to.equal('Leatha Ullrich')
   });
 
-  it.skip('should be able to post a booking', () => {
+  it('should be able to post a booking', () => {
     chai.spy.on(user, 'makeBooking', () => {
-
+      
     })
   })
 })
