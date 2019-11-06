@@ -60,7 +60,7 @@ function data(booking, rooms, user, manager) {
   $('#customer-datepicker').datepicker({
     dateFormat: "yy/mm/dd"
   });
-  $('#available-rooms').text(rooms.getAvailableRooms(getTodaysDate()).length);
+  $('#rooms-open').text(rooms.getAvailableRooms(getTodaysDate()).length);
   $('#daily-revenue').html(rooms.calculateTotalRevenue(getTodaysDate()));
   $('#percent-occupied').text(rooms.calculatePercentRoomsOccupied(getTodaysDate()));
   $('#tabs__booking').append(domUpdates.appendRooms(rooms.getAvailableRooms(getTodaysDate())));
