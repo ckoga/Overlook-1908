@@ -36,9 +36,9 @@ const domUpdates = {
         <label class="room__label" for="room-bidet">Bidet:</label>
         <p class="room__bidet" id="room-bidet">${obj.bidet}</p> 
         <label class="room__label" for="room-bed-size">Bed Size:</label>
-        <p class="room__beds" id="room-bed-size>${obj.bedSize}</p>
+        <p class="room__beds" id="room-bed-size">${obj.bedSize}</p>
         <label class="room__label" for="room-beds">Number of Beds:</label>
-        <p class="room__beds" id="room-beds>${obj.numBeds}</p>
+        <p class="room__beds" id="room-beds">${obj.numBeds}</p>
         <label class="room__label" for="room-cost">Cost Per Night:</label>
         <p class="room__cost" id="room-cost">$${obj.costPerNight}</p>
         <button id="book-room" type="button">Book Room</button>`

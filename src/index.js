@@ -80,10 +80,10 @@ function data(booking, rooms, user, manager) {
     $('.customer__available-rooms').html(domUpdates.appendRooms(rooms.filterAvailableRooms($('#customer-datepicker').val(), $('select option:selected').val())));
   });
   
-  $('#book-room').click(() => {
-    user.makeBooking($('#customer-datepicker').val(), )
+  // $('#book-room').click(() => {
+  //   user.makeBooking($('#customer-datepicker').val(), )
 
-  })
+  // })
 }; 
 
 
