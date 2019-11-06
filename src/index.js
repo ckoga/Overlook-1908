@@ -71,17 +71,16 @@ function data(booking, rooms, user, manager) {
   $('#customer-spending').text(`$${rooms.calculateCustomerBill(getTodaysDate(), 50)}`);
 
   $(document).on("change", "select", function () {
-    $("option[value=" + this.value + "]", this)
-      .attr("selected", true).siblings()
-      .removeAttr("selected")
+    $("option[value=" + this.value + "]", this).attr("selected", true).siblings().removeAttr("selected")
   });
 
   $('#room-search').click(() => {
+    console.log($('.room-number').text())
     $('.customer__available-rooms').html(domUpdates.appendRooms(rooms.filterAvailableRooms($('#customer-datepicker').val(), $('select option:selected').val())));
   });
   
   // $('#book-room').click(() => {
-  //   user.makeBooking($('#customer-datepicker').val(), )
+  //   user.makeBooking($('#customer-datepicker').val(), );
 
   // })
 }; 
