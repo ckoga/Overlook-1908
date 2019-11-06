@@ -1,8 +1,20 @@
-.customer__profile {
-  display: flex;
-  justify-content: space-around;
-}
-
 fieldset {
   width: fit-content;
+}
+
+article {
+  break-inside: avoid;
+  border: solid 2px black;
+  margin: 5px;
+  padding: 5px;
+  width: 33%;
+}
+
+.customer__profile {
+  margin-bottom: 5%;
+}
+
+.customer__booking {
+  display: inline;
+  
 }

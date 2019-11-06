@@ -67,9 +67,9 @@ function data(booking, rooms, user, manager) {
   $('#tabs__booking').append(domUpdates.appendRooms(rooms.getAvailableRooms(getTodaysDate())));
 
   $('#customer-name').text(`${user.returnUserName()}!`)
-  $('#booking-history').html(domUpdates.appendBookings(booking.getCustomerBookings(50)));
+  $('#booking-history').append(domUpdates.appendBookings(booking.getCustomerBookings(50)));
   $('.customer__available-rooms').html(domUpdates.appendRooms(rooms.getAvailableRooms(getTodaysDate())));
-  $('#customer-spending').text(`$${rooms.calculateCustomerBill(getTodaysDate(), 50)}`);
+  $('#customer-spending').append(`Total Bill: $${rooms.calculateCustomerBill(getTodaysDate(), 50)}`);
 
   $(document).on("change", "select", function () {
     $("option[value=" + this.value + "]", this).attr("selected", true).siblings().removeAttr("selected")

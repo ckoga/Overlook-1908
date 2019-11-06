@@ -48,16 +48,18 @@
           <input class="manager__datepicker" type="text" id="manager-datepicker">
         </div>
       </section>
-      <section id="customer-ui" hidden>
+      <section id="customer-ui">
         <nav class="nav">
           <h1 class="nav__h1">Welcome <span class="nav__name" id='customer-name'></span></h1>
         </nav>
         <main class="customer__main">
           <section class="customer__profile">
-              <label for="booking-history">Your Bookings</label>
-              <ul class="bookings__list" id="booking-history"></ul>
-              <label for="customer-spending" class="booking__total">Past Billing</label>
-              <p class="bookings__billing" id="customer-spending"></p>
+            <div class="customer__bookings" id="booking-history">
+              <p>Your Bookings</p>
+            </div>
+            <div class="customer__billing" id="customer-spending">
+              <p class="bookings__billing"></p>
+            </div>
           </section>
           <section class="customer__booking">
             <form name="room-search" id="room-details">

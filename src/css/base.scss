@@ -7,13 +7,10 @@ body {
 }
 
 #manager-ui {
-  // display: none;
+  display: none;
 }
 
 nav {
-  display: flex;
-  align-items: center;
-  
   h1 {
     font-size: 3em;
     margin: 0;
@@ -67,7 +64,8 @@ a {
   background: #fff;
 }
 
-.room-type,
-.room-bidet {
+.room__type,
+.room__bidet,
+.room__beds {
   text-transform: capitalize;
 }

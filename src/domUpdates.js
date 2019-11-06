@@ -16,11 +16,12 @@ const domUpdates = {
   appendBookings(arr) {
     let list = `<ul class="booking__list">`
     arr.forEach(obj => {
-      list += `<li class="bookings">
+      list += `<article class="booking">
         <p class="booking-id">Booking ID: ${obj.id}</p>
         <p class="booking-date">Date: ${obj.date}</p>
         <p class="booking-userID">User ID: ${obj.userID}</p>
-        <p class="booking-room">Room Number: ${obj.roomNumber}</p>`
+        <p class="booking-room">Room Number: ${obj.roomNumber}</p>
+        </article>`
     })
     return list
   },
@@ -29,18 +30,12 @@ const domUpdates = {
     let list = `<ul class="rooms-list">`
     arr.forEach(obj => {
       list += `<article class="room">
-          <label class="room__label" for="room-number">Room:</label>
-          <p class="room__number">${obj.number}</p>
-          <label class="room__label" for="room-type">Type:</label>
-          <p class="room__type">${obj.roomType}</p>
-          <label class="room__label" for="room-bidet">Bidet:</label>
-          <p class="room__bidet">${obj.bidet}</p> 
-          <label class="room__label" for="room-bed-size">Bed Size:</label>
-          <p class="room__beds">${obj.bedSize}</p>
-          <label class="room__label" for="room-beds">Number of Beds:</label>
-          <p class="room__beds">${obj.numBeds}</p>
-          <label class="room__label" for="room-cost">Cost Per Night:</label>
-          <p class="room__cost">$${obj.costPerNight}</p>
+          <p class="room__number">Room: ${obj.number}</p>
+          <p class="room__type">Type: ${obj.roomType}</p>
+          <p class="room__bidet">Bidet: ${obj.bidet}</p> 
+          <p class="room__beds">Bed Size: ${obj.bedSize}</p>
+          <p class="room__beds">Number of Beds: ${obj.numBeds}</p>
+          <p class="room__cost">Cost Per Night: $${obj.costPerNight}</p>
         </article>`
     })
     return list
