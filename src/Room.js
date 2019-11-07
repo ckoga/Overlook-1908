@@ -53,7 +53,7 @@ class Rooms extends Bookings {
   calculateTotalRevenue(date) {
     let totalBill = 0;
     this.getTodaysBookings(date).forEach(booking => {
-      let room = this.rooms.find(room => room.number === booking.roomNumber)
+      let room = this.rooms.find(room => room.number === parseInt(booking.roomNumber))
       totalBill += room.costPerNight
     })
     return (totalBill).toFixed(2)

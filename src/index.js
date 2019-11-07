@@ -10,6 +10,7 @@ import Manager from '../src/Manager';
 import './css/base.scss';
 
 
+
 $(document).ready(() => {
   $('#ui-tabs').tabs();
   $('.controlgroup').controlgroup();
@@ -108,11 +109,36 @@ function data(booking, rooms, user, manager) {
     user.makeBooking($('#customer-datepicker').val(), $('#room-number').val());
   });
 
-  $('#delete-booking').click(() => {
-    console.log($('#booking-number').val())
-    manager.deleteBooking($('#booking-number').val())
+  // $('#delete-booking').click(() => {
+  //   console.log($('#booking-number').val())
+    // manager.deleteBooking($('#booking-number').val())
+  // })
+
+  $('.booking__list').on('click', 'article', (event) => {
+    console.log('event: ', event.target.dataset.id)
+    if (event.target.dataset.id !== 'undefined' && $('.delete__prompt').length === 0) {
+      $('.booking').append( 
+        `<div class="delete__prompt">
+        <p>Do you want to delete this booking</p>
+        <button type="button" class="delete__button" id="confirm-yes">Yes</button>
+        <button type="button" class="delete__button" id="confirm-no">No</button>
+        </div>`
+      )
+    }
+  });
+
+  $('.booking__list').on('click', '#confirm-yes', (event) => {
+    console.log('yes: ', event.target.parentElement.parentElement.dataset.id)
+    manager.deleteBooking(event.target.parentElement.parentElement.dataset.id)
+  });
+
+  $('.booking__list').on('click', '#confirm-no', () => {
+    console.log('hi')
+    $('.delete__prompt').hide()
   })
 }; 
+
+
 
 
 
