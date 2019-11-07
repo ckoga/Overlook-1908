@@ -40,9 +40,6 @@ const domUpdates = {
     })
     return list
   }
-
 };
-
-
 
 export default domUpdates;

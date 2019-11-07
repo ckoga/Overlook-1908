@@ -6,7 +6,6 @@ class Rooms extends Bookings {
     this.rooms = roomsData;
   }
   
-
   calculateRoomsAvailable(date) {
     let availableRooms = (this.rooms.length - this.getTodaysBookings(date).length)
     return availableRooms;
@@ -24,8 +23,8 @@ class Rooms extends Bookings {
 
       if (dateBooking[1] < todayDate[1] || (dateBooking[1] === todayDate[1] && dateBooking[2] <= todayDate[2])) {
         return booking
-      } 
-    })
+      };
+    });
     
     history.forEach(booking => {
       let room = this.rooms.find(room => room.number === booking.roomNumber)
@@ -55,10 +54,10 @@ class Rooms extends Bookings {
     this.getTodaysBookings(date).forEach(booking => {
       let room = this.rooms.find(room => room.number === parseInt(booking.roomNumber))
       totalBill += room.costPerNight
-    })
-    return (totalBill).toFixed(2)
-  }
-}
+    });
+    return (totalBill).toFixed(2);
+  };
+};
 
 
 export default Rooms;

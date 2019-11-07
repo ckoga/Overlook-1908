@@ -22,8 +22,6 @@ describe('User', () => {
   });
 
   it('should be able to post a booking', () => {
-    chai.spy.on(user, 'makeBooking', () => {
-      
-    })
+    chai.spy.on(user, 'makeBooking', () => {})
   })
 })

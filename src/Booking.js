@@ -1,7 +1,6 @@
 class Booking {
   constructor(bookingData) {
     this.allBookings = bookingData;
-
   }
 
   getCustomerBookings(id) {
@@ -15,9 +14,6 @@ class Booking {
       return booking.date === date
     });
   };
-
- 
-
 };
 
 export default Booking;

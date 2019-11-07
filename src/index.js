@@ -9,13 +9,10 @@ import User from '../src/User';
 import Manager from '../src/Manager';
 import './css/base.scss';
 
-
-
 $(document).ready(() => {
   $('#ui-tabs').tabs();
   $('.controlgroup').controlgroup();
 });
-
 
 const usersFetch = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
   .then(response => response.json())
@@ -97,7 +94,6 @@ function data(booking, rooms, user, manager) {
   });
 
   $('#book-room').click(() => {
-    console.log($('#customer-datepicker').val())
       $('.booking__form').toggle('hidden')
   });
 
@@ -109,13 +105,7 @@ function data(booking, rooms, user, manager) {
     user.makeBooking($('#customer-datepicker').val(), $('#room-number').val());
   });
 
-  // $('#delete-booking').click(() => {
-  //   console.log($('#booking-number').val())
-    // manager.deleteBooking($('#booking-number').val())
-  // })
-
   $('.booking__list').on('click', 'article', (event) => {
-    console.log('event: ', event.target.dataset.id)
     if (event.target.dataset.id !== 'undefined' && $('.delete__prompt').length === 0) {
       $('.booking').append( 
         `<div class="delete__prompt">
@@ -128,12 +118,10 @@ function data(booking, rooms, user, manager) {
   });
 
   $('.booking__list').on('click', '#confirm-yes', (event) => {
-    console.log('yes: ', event.target.parentElement.parentElement.dataset.id)
     manager.deleteBooking(event.target.parentElement.parentElement.dataset.id)
   });
 
   $('.booking__list').on('click', '#confirm-no', () => {
-    console.log('hi')
     $('.delete__prompt').hide()
   })
 }; 
