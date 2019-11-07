@@ -117,7 +117,7 @@ function data(booking, rooms, user, manager) {
   $('.booking__list').on('click', 'article', (event) => {
     console.log('event: ', event.target.dataset.id)
     if (event.target.dataset.id !== 'undefined' && $('.delete__prompt').length === 0) {
-      $(event.target).append(
+      $('.booking').append( 
         `<div class="delete__prompt">
         <p>Do you want to delete this booking</p>
         <button type="button" class="delete__button" id="confirm-yes">Yes</button>
