@@ -8,7 +8,7 @@ import Booking from '../src/Booking';
 import User from '../src/User';
 import Manager from '../src/Manager';
 import './css/base.scss';
-import { notDeepEqual } from 'assert';
+
 
 
 $(document).ready(() => {
