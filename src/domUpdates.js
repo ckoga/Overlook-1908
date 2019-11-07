@@ -16,7 +16,7 @@ const domUpdates = {
   appendBookings(arr) {
     let list = `<ul class="booking__list">`
     arr.forEach(obj => {
-      list += `<article class="booking">
+      list += `<article data-id="${obj.id}" class="booking">
         <p class="booking-id">Booking ID: ${obj.id}</p>
         <p class="booking-date">Date: ${obj.date}</p>
         <p class="booking-userID">User ID: ${obj.userID}</p>
@@ -42,5 +42,7 @@ const domUpdates = {
   }
 
 };
+
+
 
 export default domUpdates;
